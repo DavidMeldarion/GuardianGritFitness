@@ -1,3 +1,5 @@
+import type { ReadonlyURLSearchParams } from "next/navigation";
+
 export type UtmParams = {
   utm_source?: string;
   utm_medium?: string;
