@@ -1,0 +1,164 @@
+"use client";
+
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { parseUtmParams } from "@/lib/utm";
+import { validateEmail, validateName } from "@/lib/validators";
+import { track } from "@/lib/analytics";
+
+type FormErrors = {
+  name?: string;
+  email?: string;
+  form?: string;
+};
+
+type UtmState = ReturnType<typeof parseUtmParams>;
+
+type LeadCaptureFormProps = {
+  source?: string;
+};
+
+export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureFormProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState(""); // honeypot
+  const [utm, setUtm] = useState<UtmState>({});
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const mountedAt = useRef<number>(Date.now());
+
+  useEffect(() => {
+    const parsed = parseUtmParams(searchParams);
+    setUtm(parsed);
+  }, [searchParams]);
+
+  const validate = () => {
+    const nextErrors: FormErrors = {};
+    if (!validateName(name)) {
+      nextErrors.name = "Please enter your name.";
+    }
+    if (!validateEmail(email)) {
+      nextErrors.email = "Enter a valid email address.";
+    }
+    if (Date.now() - mountedAt.current < 1200) {
+      nextErrors.form = "Please confirm your details before submitting.";
+    }
+    return nextErrors;
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrors({});
+
+    const nextErrors = validate();
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          utm,
+          source,
+          honeypot: company,
+          landingPage: "/lead-magnet",
+          referrer: typeof window !== "undefined" ? document.referrer : undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data?.ok) {
+        track("lead_submit", { email, utm, source });
+        router.push("/thanks?src=lead-magnet");
+        return;
+      }
+
+      setErrors({ form: data?.message || "Unable to subscribe right now." });
+    } catch (error) {
+      console.error(error);
+      setErrors({ form: "Something went wrong. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form className="space-y-4" onSubmit={handleSubmit}>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="name" className="text-sm font-semibold text-ink">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full rounded-lg border border-cloud bg-white px-4 py-3 text-steel shadow-sm transition focus:border-ember"
+            required
+          />
+          {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className="text-sm font-semibold text-ink">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-lg border border-cloud bg-white px-4 py-3 text-steel shadow-sm transition focus:border-ember"
+            required
+          />
+          {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
+        </div>
+      </div>
+
+      {/* Honeypot field */}
+      <div className="sr-only">
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          autoComplete="organization"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          tabIndex={-1}
+        />
+      </div>
+
+      {/* Hidden UTM inputs */}
+      {Object.entries(utm).map(([key, value]) => (
+        <input key={key} type="hidden" name={key} value={value ?? ""} readOnly />
+      ))}
+
+      {errors.form && <p className="text-sm text-red-600">{errors.form}</p>}
+
+      <button
+        type="submit"
+        className="w-full rounded-xl bg-ember px-5 py-3 text-center text-white font-semibold shadow-lg shadow-ember/20 transition hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Submitting..." : "Send me the free guide"}
+      </button>
+    </form>
+  );
+}

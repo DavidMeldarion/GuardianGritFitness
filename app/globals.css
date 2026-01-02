@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f4f1ea;
+}
+
+body {
+  @apply bg-sand text-steel antialiased;
+}
+
+a {
+  @apply transition-colors;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-ember ring-offset-2 ring-offset-sand;
+}
+
+::selection {
+  background: #ea580c;
+  color: #f4f1ea;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+.container-page {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-card {
+  @apply bg-white/90 border border-cloud shadow-card rounded-2xl p-6 sm:p-8;
+}
