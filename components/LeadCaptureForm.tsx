@@ -98,7 +98,7 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
     <form className="space-y-4" onSubmit={handleSubmit}>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label htmlFor="name" className="text-sm font-semibold text-ink">
+          <label htmlFor="name" className="text-sm font-semibold text-charcoal">
             Name
           </label>
           <input
@@ -108,13 +108,13 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
             autoComplete="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg border border-cloud bg-white px-4 py-3 text-steel shadow-sm transition focus:border-ember"
+            className="w-full rounded-lg border border-slate/30 bg-white px-4 py-3 text-slate shadow-sm transition focus:border-brass"
             required
           />
           {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="text-sm font-semibold text-ink">
+          <label htmlFor="email" className="text-sm font-semibold text-charcoal">
             Email
           </label>
           <input
@@ -124,7 +124,7 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-cloud bg-white px-4 py-3 text-steel shadow-sm transition focus:border-ember"
+            className="w-full rounded-lg border border-slate/30 bg-white px-4 py-3 text-slate shadow-sm transition focus:border-brass"
             required
           />
           {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
@@ -154,7 +154,7 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
 
       <button
         type="submit"
-        className="w-full rounded-xl bg-ember px-5 py-3 text-center text-white font-semibold shadow-lg shadow-ember/20 transition hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
+        className="w-full rounded-xl bg-brass px-5 py-3 text-center text-charcoal font-semibold shadow-lg shadow-brass/20 transition hover:-translate-y-0.5 hover:shadow-xl hover:bg-brass/90 disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Submitting..." : "Send me the free guide"}

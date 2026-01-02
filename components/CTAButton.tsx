@@ -3,9 +3,9 @@ import { ReactNode } from "react";
 
 const variants = {
   primary:
-    "inline-flex items-center justify-center rounded-full bg-ember px-5 py-3 text-white font-semibold shadow-lg shadow-ember/20 transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none",
+    "inline-flex items-center justify-center rounded-full bg-brass px-5 py-3 text-charcoal font-semibold shadow-lg shadow-brass/25 transition hover:-translate-y-0.5 hover:shadow-xl hover:bg-brass/90",
   ghost:
-    "inline-flex items-center justify-center rounded-full border border-steel px-5 py-3 text-steel font-semibold transition hover:-translate-y-0.5 hover:border-ember hover:text-ember",
+    "inline-flex items-center justify-center rounded-full border border-brass px-5 py-3 text-slate font-semibold transition hover:-translate-y-0.5 hover:border-brass/80 hover:text-charcoal hover:bg-brass/10",
 };
 
 type CTAButtonProps = {

@@ -17,23 +17,23 @@ export default function LeadMagnetPage() {
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
       <section className="section-card space-y-4">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ember">Free guide</p>
-        <h1 className="text-3xl font-semibold text-ink sm:text-4xl">The Father’s Strength Reset</h1>
-        <p className="text-lg text-steel/90">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brass">Free guide</p>
+        <h1 className="text-3xl font-semibold text-charcoal sm:text-4xl">The Father’s Strength Reset</h1>
+        <p className="text-lg text-slate/90">
           Built for Catholic husbands and fathers who want to reclaim strength and discipline without
           compromising family life. Run this for the next month and feel the change.
         </p>
-        <div className="space-y-3 rounded-2xl bg-cloud/60 p-4 text-steel/90">
+        <div className="space-y-3 rounded-2xl bg-bone p-4 text-slate/90 border border-brass/25">
           {bullets.map((item) => (
             <p key={item}>• {item}</p>
           ))}
         </div>
-        <p className="text-sm text-steel/80">No spam. Unsubscribe anytime.</p>
+        <p className="text-sm text-ash">No spam. Unsubscribe anytime.</p>
       </section>
 
       <section className="section-card space-y-4">
-        <h2 className="text-xl font-semibold text-ink">Get the PDF</h2>
-        <p className="text-steel/85">Enter your details and check your inbox in under a minute.</p>
+        <h2 className="text-xl font-semibold text-charcoal">Get the PDF</h2>
+        <p className="text-ash">Enter your details and check your inbox in under a minute.</p>
         <Suspense fallback={null}>
           <LeadCaptureForm source="lead-magnet" />
         </Suspense>

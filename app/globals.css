@@ -2,13 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light;
-  background: #f4f1ea;
-}
-
 body {
-  @apply bg-sand text-steel antialiased;
+  @apply bg-bone text-slate antialiased;
 }
 
 a {
@@ -19,12 +14,12 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  @apply outline-none ring-2 ring-ember ring-offset-2 ring-offset-sand;
+  @apply outline-none ring-2 ring-brass ring-offset-2 ring-offset-bone;
 }
 
 ::selection {
-  background: #ea580c;
-  color: #f4f1ea;
+  background: #b08d57;
+  color: #111214;
 }
 
 input,
@@ -38,5 +33,5 @@ button {
 }
 
 .section-card {
-  @apply bg-white/90 border border-cloud shadow-card rounded-2xl p-6 sm:p-8;
+  @apply bg-bone/90 border border-brass/25 shadow-card rounded-2xl p-6 sm:p-8;
 }

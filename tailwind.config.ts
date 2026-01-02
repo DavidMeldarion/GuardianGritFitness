@@ -8,18 +8,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0b132b",
-        steel: "#1f2937",
-        sand: "#f4f1ea",
-        ember: "#ea580c",
-        cloud: "#e5e7eb",
+        charcoal: "#111214",
+        bone: "#F4F0E8",
+        brass: "#B08D57",
+        oxblood: "#6B0F1A",
+        slate: "#2A2F36",
+        ash: "#6B7280",
       },
       fontFamily: {
-        display: ["var(--font-manrope)"],
-        body: ["var(--font-manrope)"],
+        display: ["var(--font-cinzel)"],
+        body: ["var(--font-inter)"],
+        mono: ["var(--font-plex-mono)"],
+      },
+      letterSpacing: {
+        widecaps: "0.22em",
       },
       boxShadow: {
-        card: "0 20px 60px rgba(0, 0, 0, 0.08)",
+        card: "0 16px 48px rgba(17, 18, 20, 0.08)",
       },
     },
   },
