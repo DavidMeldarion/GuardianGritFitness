@@ -1,4 +1,5 @@
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Free Strength Guide",
@@ -33,7 +34,9 @@ export default function LeadMagnetPage() {
       <section className="section-card space-y-4">
         <h2 className="text-xl font-semibold text-ink">Get the PDF</h2>
         <p className="text-steel/85">Enter your details and check your inbox in under a minute.</p>
-        <LeadCaptureForm source="lead-magnet" />
+        <Suspense fallback={null}>
+          <LeadCaptureForm source="lead-magnet" />
+        </Suspense>
       </section>
     </div>
   );

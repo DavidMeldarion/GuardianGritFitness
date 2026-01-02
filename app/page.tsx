@@ -65,7 +65,7 @@ export default function HomePage() {
       <section className="section-card">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-ink">Who it's for</h2>
+            <h2 className="text-2xl font-semibold text-ink">Who it&apos;s for</h2>
             <p className="text-steel/90">
               Catholic husbands and fathers who carry real responsibility and want strength without sacrificing
               their family or faith.
