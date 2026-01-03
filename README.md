@@ -1,6 +1,6 @@
 # Guardian Grit Fitness
 
-Marketing + lead capture funnel built with Next.js App Router, TypeScript, and Tailwind CSS. The site captures leads for a free guide and drives to the Brotherhood offer on Skool. MailerLite is the source of truth for subscribers; a mock mode is used when no API key is set.
+Marketing + lead capture funnel built with Next.js App Router, TypeScript, and Tailwind CSS. The site captures leads for The Rule of Life Primer and drives to the Brotherhood offer on Skool. MailerLite is the source of truth for subscribers; a mock mode is used when no API key is set.
 
 ## Getting Started
 
@@ -41,9 +41,9 @@ Marketing + lead capture funnel built with Next.js App Router, TypeScript, and T
       "utm_content": "carousel",
       "utm_term": "fitness"
     },
-    "source": "lead-magnet",
+    "source": "rule-of-life-primer",
     "honeypot": "",
-    "landingPage": "/lead-magnet",
+    "landingPage": "/rule-of-life-primer",
     "referrer": "https://example.com"
   }
   ```
@@ -58,7 +58,7 @@ Marketing + lead capture funnel built with Next.js App Router, TypeScript, and T
 ```bash
 curl -X POST http://localhost:3000/api/subscribe \
   -H "Content-Type: application/json" \
-  -d '{"name":"Test User","email":"test@example.com","source":"lead-magnet"}'
+  -d '{"name":"Test User","email":"test@example.com","source":"rule-of-life-primer"}'
 ```
 
 ## Deployment (Vercel)

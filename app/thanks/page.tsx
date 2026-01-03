@@ -2,7 +2,7 @@ import CTAButton from "@/components/CTAButton";
 
 export const metadata = {
   title: "Thanks — Check your email",
-  description: "Your guide is on the way. Start the next steps while you wait.",
+  description: "Your Rule of Life Primer is on the way. Start the next steps while you wait.",
 };
 
 const checklist = [
@@ -16,7 +16,7 @@ export default function ThanksPage() {
     <div className="section-card space-y-6">
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brass">You’re in</p>
-        <h1 className="text-3xl font-semibold text-charcoal sm:text-4xl">Check your email for the guide</h1>
+        <h1 className="text-3xl font-semibold text-charcoal sm:text-4xl">Check your email for The Rule of Life Primer</h1>
         <p className="text-slate/90">
           If it’s not there yet, it’s en route. Meanwhile, see how Iron and Incense: The Brotherhood can accelerate your progress.
         </p>
@@ -30,8 +30,8 @@ export default function ThanksPage() {
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <CTAButton href="/brotherhood">Explore Iron and Incense</CTAButton>
-        <CTAButton href="/lead-magnet" variant="ghost">
-          Resend the guide
+        <CTAButton href="/rule-of-life-primer" variant="ghost">
+          Resend The Rule of Life Primer
         </CTAButton>
       </div>
     </div>

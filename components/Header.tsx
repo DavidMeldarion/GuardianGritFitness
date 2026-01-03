@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/lead-magnet", label: "Free Guide" },
+  { href: "/rule-of-life-primer", label: "Get The Rule of Life Primer" },
   { href: "/brotherhood", label: "Iron & Incense" },
 ];
 
@@ -28,10 +28,10 @@ export default function Header() {
           ))}
         </nav>
         <Link
-          href="/lead-magnet"
+          href="/rule-of-life-primer"
           className="hidden rounded-full bg-brass px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal shadow-md transition hover:-translate-y-0.5 hover:shadow-lg sm:inline-flex"
         >
-          Get the Guide
+          Get The Rule of Life Primer
         </Link>
       </div>
     </header>

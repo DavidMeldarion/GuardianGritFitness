@@ -37,7 +37,7 @@ export default function HomePage() {
               focused work that respects your vocation.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CTAButton href="/lead-magnet">Get the Free Guide</CTAButton>
+              <CTAButton href="/rule-of-life-primer">Get The Rule of Life Primer</CTAButton>
               <CTAButton href="/brotherhood" variant="ghost">
                 Join Iron and Incense
               </CTAButton>
@@ -56,7 +56,7 @@ export default function HomePage() {
                 <li>• Simple nutrition priorities that work with family life.</li>
                 <li>• Daily prompts to keep you steady when motivation fades.</li>
               </ul>
-              <p className="text-sm text-ash">Grab the guide, follow it for a week, and you will feel the difference.</p>
+              <p className="text-sm text-ash">Grab The Rule of Life Primer, follow it for a week, and you will feel the difference.</p>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function HomePage() {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-charcoal">How it works</h2>
             <ol className="space-y-3 text-slate/90">
-              <li><span className="font-semibold text-charcoal">1)</span> Start with the free guide and run the first week.</li>
+              <li><span className="font-semibold text-charcoal">1)</span> Start with The Rule of Life Primer and run the first week.</li>
               <li><span className="font-semibold text-charcoal">2)</span> Join Iron and Incense: The Brotherhood for coaching, templates, and accountability.</li>
               <li><span className="font-semibold text-charcoal">3)</span> Execute, report in, and level up with other men who expect more.</li>
             </ol>
@@ -123,10 +123,10 @@ export default function HomePage() {
           <div className="space-y-4 rounded-2xl bg-charcoal p-6 text-bone shadow-xl border border-brass/40">
             <h3 className="text-xl font-semibold">Ready to move?</h3>
             <p className="text-bone/80">
-              Download the guide, run it this week, and step into Iron and Incense: The Brotherhood for coaching and accountability.
+              Download The Rule of Life Primer, run it this week, and step into Iron and Incense: The Brotherhood for coaching and accountability.
             </p>
             <div className="flex flex-col gap-3">
-              <CTAButton href="/lead-magnet">Get the Free Guide</CTAButton>
+              <CTAButton href="/rule-of-life-primer">Get The Rule of Life Primer</CTAButton>
               <CTAButton
                 href="/brotherhood"
                 variant="ghost"

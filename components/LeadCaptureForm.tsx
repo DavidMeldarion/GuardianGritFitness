@@ -18,7 +18,7 @@ type LeadCaptureFormProps = {
   source?: string;
 };
 
-export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureFormProps) {
+export default function LeadCaptureForm({ source = "rule-of-life-primer" }: LeadCaptureFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [name, setName] = useState("");
@@ -72,7 +72,7 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
           utm,
           source,
           honeypot: company,
-          landingPage: "/lead-magnet",
+          landingPage: "/rule-of-life-primer",
           referrer: typeof window !== "undefined" ? document.referrer : undefined,
         }),
       });
@@ -81,7 +81,7 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
 
       if (response.ok && data?.ok) {
         track("lead_submit", { email, utm, source });
-        router.push("/thanks?src=lead-magnet");
+        router.push("/thanks?src=rule-of-life-primer");
         return;
       }
 
@@ -157,7 +157,7 @@ export default function LeadCaptureForm({ source = "lead-magnet" }: LeadCaptureF
         className="w-full rounded-xl bg-brass px-5 py-3 text-center text-charcoal font-semibold shadow-lg shadow-brass/20 transition hover:-translate-y-0.5 hover:shadow-xl hover:bg-brass/90 disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Send me the free guide"}
+        {isSubmitting ? "Submitting..." : "Get Instant Access"}
       </button>
     </form>
   );

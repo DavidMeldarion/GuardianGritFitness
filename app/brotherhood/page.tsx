@@ -4,38 +4,9 @@ import { parseUtmParams } from "@/lib/utm";
 
 export const metadata = {
   title: "Iron and Incense: The Brotherhood",
-  description: "Structured training, nutrition priorities, and accountability for Catholic husbands and fathers.",
+  description:
+    "For Catholic men who want strength, discipline, and leadership without hype—built for real life, not perfect weeks.",
 };
-
-const pillars = [
-  {
-    title: "Programming you can stick to",
-    copy: "Strength templates with clear weekly targets. Built for men with real schedules and family priorities.",
-  },
-  {
-    title: "Nutrition that works at home",
-    copy: "Simple habits, grocery lists, and meals that serve your family instead of isolating you from them.",
-  },
-  {
-    title: "Brotherhood and accountability",
-    copy: "Weekly check-ins, small wins, and calls that keep you honest. Iron and Incense keeps you on mission.",
-  },
-];
-
-const faqs = [
-  {
-    q: "What’s inside?",
-    a: "Weekly training blocks, nutrition primers, habit trackers, live calls, and a private Skool community.",
-  },
-  {
-    q: "How long is the commitment?",
-    a: "Monthly membership. Stay as long as it serves you.",
-  },
-  {
-    q: "Do I need to be advanced?",
-    a: "No. The programming scales. Show up willing to work and to be accountable.",
-  },
-];
 
 function buildUtmFromSearchParams(searchParams?: Record<string, string | string[]>) {
   const params = new URLSearchParams();
@@ -60,51 +31,122 @@ export default async function BrotherhoodPage({
   const utm = buildUtmFromSearchParams(resolvedSearchParams);
   const skoolBase =
     process.env.SKOOL_URL ||
-    "https://www.skool.com/guardian-grit-4157/about?ref=40a52bf66c6047158611cead09f5911b";
+    "https://www.skool.com/guardian-grit-4157/about";
   const ctaUrl = appendUtmParams(skoolBase, utm);
 
+  const systemPoints = [
+    "Busy work schedules",
+    "Kids getting sick",
+    "Sleep not always perfect",
+    "Life still happening",
+  ];
+
+  const trainingTracks = [
+    "Track A: 3-Day Full Body (busy men / inconsistent weeks)",
+    "Track B: 4-Day Upper/Lower (more volume / stable schedule)",
+    "Includes progression rules + minimum effective dose fallback for chaotic weeks",
+  ];
+
+  const forWho = [
+    "You’ve started and stopped a dozen times",
+    "You want strength and physique results without your life needing to be perfect",
+    "You want a plan that supports your vocation and responsibilities—not competes with them",
+  ];
+
+  const notFor = [
+    "Men who want 1:1 custom programming and daily private messaging",
+    "Men who want extreme protocols or ‘hardcore’ gimmicks",
+    "Men who aren’t willing to follow a simple standard consistently",
+  ];
+
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 sm:space-y-10">
       <section className="section-card space-y-4">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brass">Iron and Incense</p>
-        <h1 className="text-3xl font-semibold text-charcoal sm:text-4xl">Join Iron and Incense: The Brotherhood</h1>
+        <h1 className="text-3xl font-semibold text-charcoal sm:text-4xl">The Brotherhood</h1>
         <p className="text-lg text-slate/90">
-          Train hard, lead your family well, and stay accountable with other Catholic men who expect you to rise.
-          Iron and Incense: The Brotherhood on Skool gives you the structure, coaching, and community to keep going.
+          Iron and Incense: The Brotherhood is for Catholic men who want to get strong, stay disciplined, and lead
+          their household without relying on hype, perfect weeks, or “motivation seasons.”
         </p>
         <CTAButton href={ctaUrl} target="_blank" rel="noreferrer">
-          Join on Skool
+          Join The Brotherhood
         </CTAButton>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        {pillars.map((pillar) => (
-          <div key={pillar.title} className="section-card space-y-2">
-            <h3 className="text-xl font-semibold text-charcoal">{pillar.title}</h3>
-            <p className="text-slate/90">{pillar.copy}</p>
-          </div>
-        ))}
-      </section>
-
       <section className="section-card space-y-4">
-        <h2 className="text-2xl font-semibold text-charcoal">How it works</h2>
-        <ol className="space-y-3 text-slate/90">
-          <li><span className="font-semibold text-charcoal">1)</span> Join the Skool hub and introduce yourself.</li>
-          <li><span className="font-semibold text-charcoal">2)</span> Pick your training track (home or gym) and set weekly targets.</li>
-          <li><span className="font-semibold text-charcoal">3)</span> Show up for check-ins, log wins, and stay accountable.</li>
-        </ol>
-      </section>
-
-      <section className="section-card space-y-4">
-        <h2 className="text-2xl font-semibold text-charcoal">FAQ</h2>
-        <div className="grid gap-4 lg:grid-cols-3">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="rounded-xl border border-brass/25 bg-bone p-4 shadow-sm">
-              <p className="font-semibold text-charcoal">{faq.q}</p>
-              <p className="text-slate/90">{faq.a}</p>
-            </div>
+        <h2 className="text-2xl font-semibold text-charcoal">Built for real life</h2>
+        <p className="text-slate/90">This is a simple system built for real life:</p>
+        <ul className="grid gap-2 sm:grid-cols-2 text-slate/90">
+          {systemPoints.map((point) => (
+            <li key={point} className="rounded-xl border border-brass/25 bg-bone px-4 py-3">{point}</li>
           ))}
+        </ul>
+      </section>
+
+      <section className="section-card space-y-4">
+        <h2 className="text-2xl font-semibold text-charcoal">What you get inside</h2>
+        <div className="space-y-3">
+          <div className="rounded-xl border border-brass/30 bg-bone p-4 shadow-sm">
+            <p className="font-semibold text-charcoal">✅ Plug-and-play training (choose your track)</p>
+            <ul className="mt-2 space-y-2 text-slate/90">
+              {trainingTracks.map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-brass/30 bg-bone p-4 shadow-sm">
+            <p className="font-semibold text-charcoal">✅ Simple nutrition framework</p>
+            <p className="text-slate/90">No macro obsession. No meal plans. Clear rules you can execute.</p>
+          </div>
+          <div className="rounded-xl border border-brass/30 bg-bone p-4 shadow-sm">
+            <p className="font-semibold text-charcoal">✅ Weekly discipline challenges</p>
+            <p className="text-slate/90">Short, practical standards that build consistency and character.</p>
+          </div>
+          <div className="rounded-xl border border-brass/30 bg-bone p-4 shadow-sm">
+            <p className="font-semibold text-charcoal">✅ Brotherhood accountability</p>
+            <p className="text-slate/90">Weekly check-in threads, wins threads, and a place to stay on track.</p>
+          </div>
+          <div className="rounded-xl border border-brass/30 bg-bone p-4 shadow-sm">
+            <p className="font-semibold text-charcoal">✅ Coach-led structure</p>
+            <p className="text-slate/90">Weekly direction and guidance so you always know what to focus on.</p>
+          </div>
         </div>
+      </section>
+
+      <section className="section-card grid gap-6 lg:grid-cols-2">
+        <div className="space-y-3">
+          <h3 className="text-xl font-semibold text-charcoal">Who this is for</h3>
+          <ul className="space-y-2 text-slate/90">
+            {forWho.map((item) => (
+              <li key={item}>• {item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-xl font-semibold text-charcoal">Who this is not for</h3>
+          <ul className="space-y-2 text-slate/90">
+            {notFor.map((item) => (
+              <li key={item}>• {item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section-card space-y-3">
+        <h3 className="text-xl font-semibold text-charcoal">The standard here</h3>
+        <p className="text-slate/90">Bad week ≠ restart week. We adjust, reduce to the minimum, and continue.</p>
+      </section>
+
+      <section className="section-card space-y-4">
+        <div className="space-y-2">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brass">Founding Members (limited time)</p>
+          <h3 className="text-2xl font-semibold text-charcoal">$79/month until Jan 7, 2026</h3>
+          <p className="text-slate/90">After that, new members join at $99/month.</p>
+        </div>
+        <CTAButton href={ctaUrl} target="_blank" rel="noreferrer">
+          Join The Brotherhood
+        </CTAButton>
+        <p className="text-ash text-sm">If you’re ready to build something steady—welcome in.</p>
       </section>
     </div>
   );
