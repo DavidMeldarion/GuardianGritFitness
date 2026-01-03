@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, MouseEvent } from "react";
 
 const variants = {
   primary:
@@ -27,8 +29,28 @@ export default function CTAButton({
 }: CTAButtonProps) {
   const classes = `${variants[variant]} ${className}`.trim();
 
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window === "undefined") return;
+    if (!href.includes("#")) return;
+
+    const [path, hash] = href.split("#");
+    if (!hash) return;
+
+    const currentPath = window.location.pathname;
+    const samePath = !path || path === currentPath;
+
+    if (samePath) {
+      event.preventDefault();
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", `#${hash}`);
+      }
+    }
+  };
+
   return (
-    <Link href={href} className={classes} target={target} rel={rel}>
+    <Link href={href} className={classes} target={target} rel={rel} onClick={handleClick}>
       {children}
     </Link>
   );

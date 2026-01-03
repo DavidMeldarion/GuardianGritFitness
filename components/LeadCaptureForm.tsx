@@ -7,7 +7,8 @@ import { validateEmail, validateName } from "@/lib/validators";
 import { track } from "@/lib/analytics";
 
 type FormErrors = {
-  name?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   form?: string;
 };
@@ -21,7 +22,8 @@ type LeadCaptureFormProps = {
 export default function LeadCaptureForm({ source = "rule-of-life-primer" }: LeadCaptureFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState(""); // honeypot
   const [utm, setUtm] = useState<UtmState>({});
@@ -36,8 +38,11 @@ export default function LeadCaptureForm({ source = "rule-of-life-primer" }: Lead
 
   const validate = () => {
     const nextErrors: FormErrors = {};
-    if (!validateName(name)) {
-      nextErrors.name = "Please enter your name.";
+    if (!validateName(firstName)) {
+      nextErrors.firstName = "Enter your first name.";
+    }
+    if (!validateName(lastName)) {
+      nextErrors.lastName = "Enter your last name.";
     }
     if (!validateEmail(email)) {
       nextErrors.email = "Enter a valid email address.";
@@ -67,7 +72,7 @@ export default function LeadCaptureForm({ source = "rule-of-life-primer" }: Lead
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
+          name: `${firstName.trim()} ${lastName.trim()}`.trim(),
           email,
           utm,
           source,
@@ -98,22 +103,40 @@ export default function LeadCaptureForm({ source = "rule-of-life-primer" }: Lead
     <form className="space-y-4" onSubmit={handleSubmit}>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label htmlFor="name" className="text-sm font-semibold text-charcoal">
-            Name
+          <label htmlFor="firstName" className="text-sm font-semibold text-charcoal">
+            First Name
           </label>
           <input
-            id="name"
-            name="name"
+            id="firstName"
+            name="firstName"
             type="text"
-            autoComplete="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            autoComplete="given-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             className="w-full rounded-lg border border-slate/30 bg-white px-4 py-3 text-slate shadow-sm transition focus:border-brass"
             required
           />
-          {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
+          {errors.firstName && <p className="text-sm text-red-600">{errors.firstName}</p>}
         </div>
         <div className="flex flex-col gap-2">
+          <label htmlFor="lastName" className="text-sm font-semibold text-charcoal">
+            Last Name
+          </label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            autoComplete="family-name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className="w-full rounded-lg border border-slate/30 bg-white px-4 py-3 text-slate shadow-sm transition focus:border-brass"
+            required
+          />
+          {errors.lastName && <p className="text-sm text-red-600">{errors.lastName}</p>}
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
           <label htmlFor="email" className="text-sm font-semibold text-charcoal">
             Email
           </label>
@@ -129,7 +152,6 @@ export default function LeadCaptureForm({ source = "rule-of-life-primer" }: Lead
           />
           {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
         </div>
-      </div>
 
       {/* Honeypot field */}
       <div className="sr-only">

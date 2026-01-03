@@ -30,7 +30,7 @@ export default function ThanksPage() {
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <CTAButton href="/brotherhood">Explore Iron and Incense</CTAButton>
-        <CTAButton href="/rule-of-life-primer" variant="ghost">
+        <CTAButton href="/rule-of-life-primer#primer-form" variant="ghost">
           Resend The Rule of Life Primer
         </CTAButton>
       </div>

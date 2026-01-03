@@ -190,7 +190,7 @@ export default function HomePage() {
           <li>• Printable PDF</li>
           <li>• Built for men with responsibility</li>
         </ul>
-        <CTAButton href="/rule-of-life-primer">Get the Free Rule of Life Primer</CTAButton>
+        <CTAButton href="/rule-of-life-primer#primer-form">Get the Free Rule of Life Primer</CTAButton>
       </section>
 
       <section className="section-card space-y-4">
@@ -205,7 +205,7 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <CTAButton href="/brotherhood">See How Coaching Works</CTAButton>
-          <CTAButton href="/rule-of-life-primer" variant="ghost">
+          <CTAButton href="/rule-of-life-primer#primer-form" variant="ghost">
             Get the Free Primer
           </CTAButton>
         </div>
@@ -238,7 +238,7 @@ export default function HomePage() {
             <h3 className="text-xl font-semibold">Start now</h3>
             <p className="text-bone/80">Get the Rule of Life Primer, run the framework, and see how coaching can help you execute faster.</p>
             <div className="flex flex-col gap-3">
-              <CTAButton href="/rule-of-life-primer">Get the Free Rule of Life Primer</CTAButton>
+              <CTAButton href="/rule-of-life-primer#primer-form">Get the Free Rule of Life Primer</CTAButton>
               <CTAButton
                 href="/brotherhood"
                 variant="ghost"
