@@ -10,7 +10,7 @@ export const metadata = {
 const faqs = [
   {
     q: "Is this faith-based?",
-    a: "It's built for men who value faith, responsibility, discipline, and leadership. No background required.",
+    a: "It's built for men who value faith, responsibility, discipline, and leadership. But no theological background required.",
   },
   {
     q: "Do I need a gym?",
