@@ -10,6 +10,7 @@ export const metadata = {
 
 const inside = [
   "A clean, printable PDF you can run immediately.",
+  "A 7-lesson video mini-course (Lesson 0-6) that shows you exactly how to use it.",
   "Reflection prompts and self-audits to spot drift early.",
   "The Four Non-Negotiables section you can return to anytime.",
 ];
@@ -22,16 +23,17 @@ export default function LeadMagnetPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brass">The Rule of Life Primer</p>
           <h1 className="text-3xl font-semibold text-charcoal sm:text-4xl">Structure for Training and Nutrition That Actually Sticks</h1>
           <p className="text-lg text-slate/90">
-            Most men don’t fail because they don’t know what to do. They fail because life gets loud and execution becomes negotiable.
+            Most men don't fail because they don't know what to do. They fail because life gets loud and execution becomes negotiable.
           </p>
           <p className="text-lg text-slate/90">
-            This free PDF gives you a simple structure you can run in real life: fewer decisions, less drift, more consistency.
+            This free bundle is the printable PDF plus a 7-lesson mini-course that walks you through using it: fewer decisions, less drift, more consistency.
           </p>
           <div className="space-y-2">
-            <p className="font-semibold text-charcoal">Get the Primer (Free)</p>
+            <p className="font-semibold text-charcoal">Get the Primer + Mini-Course (Free)</p>
             <ul className="space-y-2 text-slate/90">
               <li>• Built for husbands and fathers with real schedules</li>
               <li>• Training + nutrition execution without overthinking</li>
+              <li>• 7 short video lessons (Lesson 0-6) to keep you moving</li>
             </ul>
           </div>
           <CTAButton href="#primer-form">Get Instant Access</CTAButton>
@@ -88,7 +90,7 @@ export default function LeadMagnetPage() {
       <section className="section-card space-y-4">
         <h2 className="text-2xl font-semibold text-charcoal">What’s inside (free)</h2>
         <div className="space-y-2 text-slate/90">
-          <p className="font-semibold text-charcoal">PDF Guide</p>
+          <p className="font-semibold text-charcoal">What you get</p>
           <ul className="space-y-2">
             {inside.map((item) => (
               <li key={item}>• {item}</li>
@@ -115,7 +117,8 @@ export default function LeadMagnetPage() {
       <section className="section-card space-y-3">
         <h2 className="text-2xl font-semibold text-charcoal">What happens after you download it?</h2>
         <p className="text-slate/90">You’ll receive the PDF download.</p>
-        <p className="text-slate/90">Don’t skim. Decide one standard. Execute it for 7 days. That alone will change your consistency.</p>
+        <p className="text-slate/90">You’ll also get the mini-course hub link (Lesson 0-6) so you can watch Lesson 0 right away.</p>
+        <p className="text-slate/90">Don't skim. Decide one standard. Execute it for 7 days. That alone will change your consistency.</p>
       </section>
 
       <section className="section-card space-y-4">
